@@ -82,7 +82,7 @@ export const LoginForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
           placeholder='Enter Email'
-          className='border-2 rounded-full px-3 py-2 mt-1 w-full bg-gray-100 drop-shadow-sm'
+          className='border-2 rounded-full p-3 mt-1 w-full bg-gray-100 drop-shadow-sm'
         />
 
         <input
@@ -91,26 +91,26 @@ export const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           placeholder='Enter Password'
-          className='border-2 rounded-full px-3 py-2 mt-2 w-full bg-gray-100 drop-shadow-sm'
+          className='border-2 rounded-full p-3 mt-4 w-full bg-gray-100 drop-shadow-sm'
         />
 
         <div>
           {switchTab ? (
             <button
               onClick={handleSignIn}
-              className='w-full border-2 p-3 rounded-full mt-4 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white'>
+              className='w-full border-2 p-4 rounded-full mt-4 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white'>
               {loading ? "loading..." : "Sign In"}
             </button>
           ) : (
             <button
               onClick={handleSignUp}
-              className='w-full border-2 p-3 rounded-full mt-4 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white'>
+              className='w-full border-2 p-3 rounded-full mt-8 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white'>
               {loading ? "loading..." : "Sign Up"}
             </button>
           )}
         </div>
         {switchTab ? (
-          <p className='text-center text-sm mt-2'>
+          <p className='text-center text-sm mt-4'>
             If you are new,{" "}
             <span
               className='cursor-pointer bg-blue-100 rounded-full p-0.5'

@@ -20,7 +20,7 @@ export default async function NavHeader() {
           </p>
         </div>
 
-        {!data?.session?.user && (
+        {data?.session?.user && (
           <div className='flex flex-row'>
             <div className='md:hidden'>
               <MobileMenu />
