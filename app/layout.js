@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang='en'>
-      <body className={shantell.className}>
+      <body className={inter.className}>
         {/* <button onClick={signOut}>Sign Out</button> */}
         <NavHeader />
         {children}
