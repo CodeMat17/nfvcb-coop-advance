@@ -1,19 +1,19 @@
 "use client";
 
 import { Menu, Transition } from "@headlessui/react";
+import { AiOutlineLogout } from "react-icons/ai";
+import { BiHomeSmile } from "react-icons/bi";
+import { GiPayMoney } from "react-icons/gi";
 import { HiMenuAlt3 } from "react-icons/hi";
-import {AiOutlineLogout} from 'react-icons/ai'
-import { GiPayMoney } from 'react-icons/gi'
-import { RiAdminLine } from 'react-icons/ri'
-import { BiHomeSmile } from 'react-icons/bi'
+import { RiAdminLine } from "react-icons/ri";
 
 const MobileMenu = () => {
   return (
     <Menu as='div' className='relative'>
       {({ open }) => (
         <>
-          <Menu.Button className='inline-flex justify-center border shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 bg-amber-600 p-2 rounded-lg'>
-            <HiMenuAlt3 className='text-amber-900 hover:text-amber-400 text-3xl' />
+          <Menu.Button className='inline-flex justify-center shadow-lg bg-amber-600 p-2 rounded-lg'>
+            <HiMenuAlt3 className='text-white hover:text-amber-400 text-3xl' />
           </Menu.Button>
           <Transition
             show={open}
@@ -24,16 +24,20 @@ const MobileMenu = () => {
             leaveFrom='transform scale-100 opacity-100'
             leaveTo='transform scale-95 opacity-0'>
             <Menu.Items
-              className='origin-top-right absolute bg-amber-500 right-0 flex flex-col mt-2 rounded-lg w-56 overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:ontline-none'
+              className='origin-top-right absolute bg-amber-500 right-0 flex flex-col mt-2 rounded-lg w-56 overflow-hidden shadow-2xl ring-1 ring-black ring-opacity-5 divide-y divide-blue-950 focus:ontline-none'
               static>
               <Menu.Item>
                 {({ active }) => (
                   <a
                     className={`${
                       active ? "bg-amber-400 text-amber-900" : "text-white"
-                    } font-semibold inline-flex items-center justify-center gap-x-2 text-center text-lg py-4 `}
+                    } font-semibold inline-flex items-center justify-center gap-x-3 text-center text-lg py-4 `}
                     href='/'>
-                    <BiHomeSmile className='text-xl' />
+                    <BiHomeSmile
+                      className={` ${
+                        active ? "text-amber-900" : "text-green-600"
+                      } text-xl font-semibold `}
+                    />
                     HOME
                   </a>
                 )}
@@ -43,9 +47,13 @@ const MobileMenu = () => {
                   <a
                     className={`${
                       active ? "bg-amber-400 text-amber-900" : "text-white"
-                    } font-semibold inline-flex items-center justify-center gap-x-2 text-amber-900 text-center text-lg py-4 `}
+                    } font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center text-lg py-4 `}
                     href='/admin'>
-                    <RiAdminLine className='text-xl font-semibold' />
+                    <RiAdminLine
+                      className={` ${
+                        active ? "text-amber-900" : "text-green-600"
+                      } text-xl font-semibold `}
+                    />
                     ADMIN
                   </a>
                 )}
@@ -55,9 +63,13 @@ const MobileMenu = () => {
                   <a
                     className={`${
                       active ? "bg-amber-400 text-amber-900" : "text-white"
-                    } font-semibold inline-flex items-center justify-center gap-x-2 text-amber-900 text-center text-lg py-4 `}
+                    } font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center text-lg py-4 `}
                     href='/repay'>
-                    <GiPayMoney className='text-xl font-semibold' />
+                    <GiPayMoney
+                      className={` ${
+                        active ? "text-amber-900" : "text-green-600"
+                      } text-xl font-semibold `}
+                    />
                     REPAY
                   </a>
                 )}
@@ -67,13 +79,48 @@ const MobileMenu = () => {
                   <a
                     className={`${
                       active && "bg-red-300"
-                    } font-semibold inline-flex items-center justify-center gap-x-2 text-red-500 text-center text-lg py-4 `}
+                    } font-semibold inline-flex items-center justify-center gap-x-3 text-red-500 text-center text-lg py-4 `}
                     href='/admin'>
                     <AiOutlineLogout className='text-xl font-semibold' />
                     SIGN OUT
                   </a>
                 )}
               </Menu.Item>
+              <div className='flex justify-center divide-x divide-blue-950'>
+                <Menu.Item className='flex justify-center'>
+                  {({ active }) => (
+                    <a
+                      className={`${
+                        active ? "bg-amber-400 text-amber-900" : "text-white"
+                      } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
+                      href='/repay'>
+                      <GiPayMoney
+                        className={` ${
+                          active ? "text-amber-900" : "text-green-600"
+                        } text-xl font-semibold `}
+                      />
+                      {/* CALL US */}
+                    </a>
+                  )}
+                </Menu.Item>
+
+                <Menu.Item>
+                  {({ active }) => (
+                    <a
+                      className={`${
+                        active ? "bg-amber-400 text-amber-900" : "text-white"
+                      } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
+                      href='/repay'>
+                      <GiPayMoney
+                        className={` ${
+                          active ? "text-amber-900" : "text-green-600"
+                        } text-xl font-semibold `}
+                      />
+                      {/* EMAIL US */}
+                    </a>
+                  )}
+                </Menu.Item>
+              </div>
             </Menu.Items>
           </Transition>
         </>
