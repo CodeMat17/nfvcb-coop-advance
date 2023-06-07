@@ -1,14 +1,19 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Inter } from "next/font/google";
-import LogoutButton from "./LogoutButton";
-import MobileMenu from "./MobileMenu";
 import { cookies } from "next/headers";
+import DesktopMenu from "./DesktopMenu";
+import MobileMenu from "./MobileMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default async function NavHeader() {
-  const supabase = createServerComponentClient({cookies});
+  const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.auth.getSession();
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("id, isAdmin")
+    .eq("id", data?.session?.user?.id);
+
   return (
     <div className='sticky top-0 z-50 px-4 py-3 bg-blue-950 text-white'>
       <div className='flex justify-between place-items-center'>
@@ -22,15 +27,14 @@ export default async function NavHeader() {
 
         {data?.session?.user && (
           <div className='flex flex-row'>
-            <div className='md:hidden'>
-              <MobileMenu />
+            <div className='sm:hidden'>
+              <MobileMenu profile={profile} />
             </div>
-            <div className='hidden md:flex'>
-              <button className='mr-4'>Desktop Menu</button>
-              <LogoutButton />
+            <div className='hidden sm:flex'>
+              <DesktopMenu profile={profile} />
             </div>
           </div>
-)}
+        )}
       </div>
     </div>
   );

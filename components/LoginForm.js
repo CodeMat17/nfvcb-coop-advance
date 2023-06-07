@@ -3,6 +3,7 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { CgSpinnerAlt } from "react-icons/cg";
 
 export const LoginForm = () => {
   const supabase = createClientComponentClient();
@@ -43,10 +44,10 @@ export const LoginForm = () => {
       setError(error.message);
     }
     if (data) {
-       router.push('/');
+      router.refresh();
+      router.push("/");
     }
     setLoading(false);
-    router.refresh();
   };
 
   if (submitted) {
@@ -98,14 +99,28 @@ export const LoginForm = () => {
           {switchTab ? (
             <button
               onClick={handleSignIn}
-              className='w-full border-2 p-4 rounded-full mt-4 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white'>
-              {loading ? "loading..." : "Sign In"}
+              className='w-full border-2 p-4 rounded-full mt-8 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white'>
+              {loading ? (
+                <div className='flex items-center justify-center gap-x-3'>
+                  <CgSpinnerAlt className=' text-2xl w-6 h-6 animate-spin' />{" "}
+                  <p>Signing In...</p>
+                </div>
+              ) : (
+                "Sign In"
+              )}
             </button>
           ) : (
             <button
               onClick={handleSignUp}
-              className='w-full border-2 p-3 rounded-full mt-8 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white'>
-              {loading ? "loading..." : "Sign Up"}
+              className='w-full border-2 p-4 rounded-full mt-8 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white'>
+              {loading ? (
+                <div className='flex items-center justify-center gap-x-3'>
+                  <CgSpinnerAlt className=' text-2xl w-6 h-6 animate-spin' />{" "}
+                  <p>Signing Up...</p>
+                </div>
+              ) : (
+                "Sign Up"
+              )}
             </button>
           )}
         </div>
@@ -119,7 +134,7 @@ export const LoginForm = () => {
             </span>
           </p>
         ) : (
-          <p className='text-center text-sm mt-2'>
+          <p className='text-center text-sm mt-4'>
             If you have signed up already,{" "}
             <span
               className='cursor-pointer bg-blue-100 rounded-full p-0.5'

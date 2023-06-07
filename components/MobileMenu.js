@@ -2,12 +2,13 @@
 
 import { Menu, Transition } from "@headlessui/react";
 import { AiOutlineLogout } from "react-icons/ai";
-import { BiHomeSmile } from "react-icons/bi";
+import { BiHomeSmile, BiMailSend } from "react-icons/bi";
 import { GiPayMoney } from "react-icons/gi";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { RiAdminLine } from "react-icons/ri";
+import { MdCall } from 'react-icons/md'
 
-const MobileMenu = () => {
+const MobileMenu = ({ profile }) => {
   return (
     <Menu as='div' className='relative'>
       {({ open }) => (
@@ -24,7 +25,7 @@ const MobileMenu = () => {
             leaveFrom='transform scale-100 opacity-100'
             leaveTo='transform scale-95 opacity-0'>
             <Menu.Items
-              className='origin-top-right absolute bg-amber-500 right-0 flex flex-col mt-2 rounded-lg w-56 overflow-hidden shadow-2xl ring-1 ring-black ring-opacity-5 divide-y divide-blue-950 focus:ontline-none'
+              className='origin-top-right absolute bg-amber-500 right-0 flex flex-col mt-2 rounded-lg w-56 overflow-hidden shadow-2xl ring-1 ring-black ring-opacity-5 focus:ontline-none'
               static>
               <Menu.Item>
                 {({ active }) => (
@@ -42,22 +43,32 @@ const MobileMenu = () => {
                   </a>
                 )}
               </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <a
-                    className={`${
-                      active ? "bg-amber-400 text-amber-900" : "text-white"
-                    } font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center text-lg py-4 `}
-                    href='/admin'>
-                    <RiAdminLine
-                      className={` ${
-                        active ? "text-amber-900" : "text-green-600"
-                      } text-xl font-semibold `}
-                    />
-                    ADMIN
-                  </a>
-                )}
-              </Menu.Item>
+              {profile &&
+                profile.map((item) => (
+                  <div key='item.id'>
+                    {item.isAdmin && (
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            className={`${
+                              active
+                                ? "bg-amber-400 text-amber-900"
+                                : "text-white"
+                            } font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center text-lg py-4 `}
+                            href='/admin'>
+                            <RiAdminLine
+                              className={` ${
+                                active ? "text-amber-900" : "text-green-600"
+                              } text-xl font-semibold `}
+                            />
+                            ADMIN
+                          </a>
+                        )}
+                      </Menu.Item>
+                    )}
+                  </div>
+                ))}
+
               <Menu.Item>
                 {({ active }) => (
                   <a
@@ -86,7 +97,7 @@ const MobileMenu = () => {
                   </a>
                 )}
               </Menu.Item>
-              <div className='flex justify-center divide-x divide-blue-950'>
+              <div className='flex justify-center divide-x divide-gray-400'>
                 <Menu.Item className='flex justify-center'>
                   {({ active }) => (
                     <a
@@ -94,10 +105,10 @@ const MobileMenu = () => {
                         active ? "bg-amber-400 text-amber-900" : "text-white"
                       } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
                       href='/repay'>
-                      <GiPayMoney
+                      <MdCall
                         className={` ${
                           active ? "text-amber-900" : "text-green-600"
-                        } text-xl font-semibold `}
+                        } text-2xl font-semibold `}
                       />
                       {/* CALL US */}
                     </a>
@@ -111,10 +122,10 @@ const MobileMenu = () => {
                         active ? "bg-amber-400 text-amber-900" : "text-white"
                       } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
                       href='/repay'>
-                      <GiPayMoney
+                      <BiMailSend
                         className={` ${
                           active ? "text-amber-900" : "text-green-600"
-                        } text-xl font-semibold `}
+                        } text-2xl font-semibold `}
                       />
                       {/* EMAIL US */}
                     </a>
