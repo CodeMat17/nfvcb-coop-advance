@@ -17,8 +17,15 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
   const [error, setError] = useState(false);
 
   const updateProfile = async () => {
-    if (!full_name.trim() || !phone_no.trim() || !ippis_no.trim()) {
-      toast.error("All fields are required, fill them.");
+    if (
+      !full_name.trim() ||
+      full_name.length < 6 ||
+      !phone_no.trim() ||
+      phone_no.length < 11 ||
+      !ippis_no.trim() ||
+      ippis_no.length < 6
+    ) {
+      toast.error("All fields are required. Read the red lines.");
     } else {
       try {
         setLoading(true);
@@ -74,11 +81,11 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                 </button>
               </div>
               <div className=' p-4 text-sm'>
-                {error &&
+                {error && (
                   <div className='text-center text-red-500 bg-red-100 rounded-lg p-2'>
                     {error}
                   </div>
-                }
+                )}
                 <div className='flex flex-col mb-2'>
                   <label>Email</label>
                   <input
@@ -96,6 +103,11 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                     placeholder='Enter your name here'
                     className=' text-gray-700 border-2 rounded-lg px-3 py-2 '
                   />
+                  <label className='text-red-500 text-xs'>
+                    {full_name.length >= 6
+                      ? ""
+                      : "Name cannot be less than 6 characters."}
+                  </label>
                 </div>
                 <div className='flex flex-col mb-2'>
                   <label>Phone No.</label>
@@ -106,6 +118,11 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                     placeholder='Enter your phone no. here'
                     className=' text-gray-700 border-2 rounded-lg px-3 py-2 '
                   />
+                  <label className='text-red-500 text-xs'>
+                    {phone_no.length === 11
+                      ? ""
+                      : "Phone no cannot be less than or more than 11 digits."}
+                  </label>
                 </div>
                 <div className='flex flex-col mb-2'>
                   <label>IPPIS No.</label>
@@ -117,7 +134,7 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                     className=' text-gray-700 border-2 rounded-lg px-3 py-2 '
                   />
                   <label className='text-xs text-red-400 mt-0.5'>
-                    Maximum of 6 digits
+                    {ippis_no.length < 6 ? 'Maximum of 6 digits' : ''}
                   </label>
                 </div>
               </div>
@@ -129,7 +146,7 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                 </button>
                 <button
                   onClick={updateProfile}
-                  className='text-md bg-blue-500/70 text-white rounded-lg px-4 py-1 '>
+                  className={` text-md bg-blue-500/70 text-white rounded-lg px-4 py-1 `}>
                   {loading ? (
                     <div className='flex space-x-2'>
                       <div className='animate-spin w-6 h-6'>

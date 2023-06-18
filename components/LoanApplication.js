@@ -1,11 +1,11 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { ImSpinner } from "react-icons/im";
-import dayjs from "dayjs";
+import Spinner from "./Spinner";
 
 const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
   const supabase = createClientComponentClient();
@@ -53,7 +53,15 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
             .update({ status: "processing" })
             .eq("id", id);
 
-          toast.success("Your request has been received!");
+          toast("Your request has been received!", {
+            duration: 4000,
+            position: "top-center",
+            icon: "👍",
+            style: {
+              color: "white",
+              background: "blue",
+            },
+          });
         }
       } catch (error) {
         toast.error(error);
@@ -154,10 +162,10 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
               disabled={!isChecked}
               className={`${
                 !isChecked ? "opacity-25 cursor-not-allowed" : ""
-              } bg-blue-700 hover:bg-blue-700 w-full rounded-lg py-3`}>
+              } bg-blue-700 hover:bg-blue-700 w-full rounded-full py-3`}>
               {loading ? (
-                <div className='flex justify-center align-middle gap-x-2'>
-                  <ImSpinner className='text-lg animate-spin' />{" "}
+                <div className='flex justify-center items-center gap-x-3'>
+                  <Spinner />
                   <p>Submitting</p>
                 </div>
               ) : (
@@ -203,7 +211,12 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
                     Requested On: {dayjs(created_at).format(" MMM D, YYYY")}
                   </Text> */}
 
-                  <p>Repayment duration: 3 months <span className="text-sm text-blue-300 ">(from date of approval).</span> </p>
+                  <p>
+                    Repayment duration: 3 months{" "}
+                    <span className='text-sm text-blue-300 '>
+                      (from date of approval).
+                    </span>{" "}
+                  </p>
                 </div>
               ))}
           </div>
