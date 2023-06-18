@@ -111,7 +111,7 @@ export const LoginForm = () => {
             </button>
           ) : (
             <button
-                onClick={handleSignUp} disabled
+                onClick={handleSignUp} disabled={!email.trim() || !password.trim()}
                 className={`w-full border-2 p-4 rounded-full mt-8 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white disabled:cursor-not-allowed disabled:opacity-50`}>
               {loading ? (
                 <div className='flex items-center justify-center gap-x-3'>
