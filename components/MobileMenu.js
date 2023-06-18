@@ -24,7 +24,7 @@ const MobileMenu = ({ profile, session }) => {
     <Menu as='div' className='relative inline-block text-left sm:hidden'>
       <div>
         <Menu.Button className='p-1 rounded-lg bg-[#086daf] hover:bg-blue-900 text-[#ec6d25]'>
-          <HiMenuAlt3 className='text-3xl' aria-hidden='true' />
+          <HiMenuAlt3 className='text-4xl' aria-hidden='true' />
         </Menu.Button>
       </div>
 
@@ -44,12 +44,12 @@ const MobileMenu = ({ profile, session }) => {
               <a
                 className={`${
                   active ? "bg-blue-200 text-white" : "text-[#ec6d25] "
-                } font-semibold inline-flex items-center px-4 gap-x-3 text-lg py-4 `}
+                } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
                 href='/'>
                 <BiHomeSmile
                   className={` ${
                     active ? "text-blue-950" : "text-blue-300"
-                  } text-xl font-semibold `}
+                  } text-2xl font-semibold `}
                 />
                 HOME
               </a>
@@ -68,12 +68,12 @@ const MobileMenu = ({ profile, session }) => {
                               active
                                 ? "bg-blue-200 text-white"
                                 : "text-[#ec6d25] "
-                            } font-semibold inline-flex items-center px-4 gap-x-3 text-lg py-4 `}
+                            } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
                             href='/admin'>
                             <RiAdminLine
                               className={` ${
                                 active ? "text-blue-950" : "text-blue-300"
-                              } text-xl font-semibold `}
+                              } text-2xl font-semibold `}
                             />
                             ADMIN
                           </a>
@@ -90,12 +90,12 @@ const MobileMenu = ({ profile, session }) => {
               <a
                 className={`${
                   active ? "bg-blue-200 text-white" : "text-[#ec6d25] "
-                } font-semibold inline-flex items-center px-4 gap-x-3 text-lg py-4 `}
+                } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
                 href='/repay'>
                 <GiPayMoney
                   className={` ${
                     active ? "text-blue-950" : "text-blue-300"
-                  } text-xl font-semibold `}
+                  } text-2xl font-semibold `}
                 />
                 REPAY
               </a>
@@ -109,11 +109,11 @@ const MobileMenu = ({ profile, session }) => {
                   onClick={signOut}
                   className={`${
                     active ? "bg-blue-200 text-red-500" : "text-[#ec6d25] "
-                  } font-semibold inline-flex items-center px-4 gap-x-3 text-lg py-4 `}>
+                  } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}>
                   <AiOutlineLogout
                     className={` ${
                       active ? "text-red-500" : "text-blue-300"
-                    } text-xl font-semibold `}
+                    } text-2xl font-semibold `}
                   />
                   SIGN OUT
                 </button>

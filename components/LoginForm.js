@@ -128,7 +128,7 @@ export const LoginForm = () => {
           <p className='text-center text-sm mt-4'>
             If you are new,{" "}
             <span
-              className='cursor-pointer bg-blue-100 rounded-full p-0.5'
+              className='cursor-pointer text-blue-500 border rounded-full py-0.5 px-1 shadow-md'
               onClick={switchLoginTab}>
               Sign up here
             </span>
@@ -137,7 +137,7 @@ export const LoginForm = () => {
           <p className='text-center text-sm mt-4'>
             If you have signed up already,{" "}
             <span
-              className='cursor-pointer bg-blue-100 rounded-full p-0.5'
+              className='cursor-pointer  text-blue-500 border rounded-full py-0.5 px-1 shadow-md'
               onClick={switchLoginTab}>
               Sign in here
             </span>
