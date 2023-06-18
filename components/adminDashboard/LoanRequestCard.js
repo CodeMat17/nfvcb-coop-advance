@@ -13,7 +13,6 @@ const LoanRequestCard = ({
   amount,
   location,
   phone_no,
-  setError,
   user_email,
 }) => {
   const supabase = createClientComponentClient();
@@ -22,7 +21,7 @@ const LoanRequestCard = ({
   const [approving, setApproving] = useState(false);
 
   const declineLoan = async () => {
-    setError(null);
+  
     setDeclining(true);
     try {
       const { data, error } = await supabase
@@ -32,7 +31,15 @@ const LoanRequestCard = ({
         .select();
 
       if (error) {
-        setError(error.message);
+        toast(error.message, {
+          duration: 4000,
+          position: "top-center",
+          icon: "😲",
+          style: {
+            color: "white",
+            background: "red",
+          },
+        });
       }
 
       if (data) {
@@ -48,7 +55,15 @@ const LoanRequestCard = ({
         router.refresh();
       }
     } catch (error) {
-      setError(error.message);
+        toast(error.message, {
+          duration: 4000,
+          position: "top-center",
+          icon: "😲",
+          style: {
+            color: "white",
+            background: "red",
+          },
+        });
       console.log("error: ", error);
     } finally {
       setDeclining(false);
@@ -56,7 +71,7 @@ const LoanRequestCard = ({
   };
 
   const approveLoan = async () => {
-    setError(null);
+   
     setApproving(true);
     try {
       const { data, error } = await supabase
@@ -70,7 +85,15 @@ const LoanRequestCard = ({
         .select();
 
       if (error) {
-        setError(error.message);
+        toast(error.message, {
+          duration: 4000,
+          position: "top-center",
+          icon: "😲",
+          style: {
+            color: "white",
+            background: "red",
+          },
+        });
       }
 
       if (data) {
@@ -93,7 +116,15 @@ const LoanRequestCard = ({
         router.refresh();
       }
     } catch (error) {
-      setError(error.message);
+       toast(error.message, {
+         duration: 4000,
+         position: "top-center",
+         icon: "😲",
+         style: {
+           color: "white",
+           background: "red",
+         },
+       });
       console.log("error: ", error);
     } finally {
       setApproving(false);
