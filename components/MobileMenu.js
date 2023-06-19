@@ -17,7 +17,7 @@ const MobileMenu = ({ profile, session }) => {
 
   const signOut = () => {
     supabase.auth.signOut();
-    router.refresh();
+    router.push('/login');
   };
 
   return (
