@@ -75,9 +75,9 @@ const ApprovedLoanCard = ({
   return (
     <>
       <Toaster />
-      <div className='border p-4 rounded-lg shadow-sm hover:shadow-md bg-green-50'>
+      <div className=' p-4 rounded-lg shadow-sm hover:shadow-md bg-green-50 dark:bg-gray-700'>
         <h1 className='text-lg truncate'>{full_name}</h1>
-        <div className='text-sm text-gray-500 leading-5'>
+        <div className='text-sm text-gray-500 dark:text-gray-400 leading-5'>
           <p>Amount: {amount}</p>
           <p>Phone no: {phone_no}</p>
           <p>Applied on: {dayjs(created_at).format(" MMM D, YYYY")}</p>

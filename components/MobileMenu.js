@@ -39,7 +39,7 @@ const MobileMenu = ({ profile, session }) => {
             leaveFrom='transform scale-100 opacity-100'
             leaveTo='transform scale-95 opacity-0'>
             <Menu.Items
-              className='origin-top-right absolute bg-blue-50 right-0 flex flex-col mt-2 rounded-lg w-56 overflow-hidden shadow-2xl ring-1 ring-black ring-opacity-5 focus:ontline-none'
+              className='origin-top-right absolute bg-blue-50 dark:bg-gray-600 right-0 flex flex-col mt-2 rounded-lg w-56 overflow-hidden shadow-2xl ring-1 ring-black ring-opacity-5 focus:ontline-none'
               static>
               <Menu.Item>
                 {({ active }) => (

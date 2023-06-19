@@ -10,14 +10,14 @@ const AdminTabs = ({ verify, loans, user_email, approvedLoans }) => {
   return (
     <div className='w-full my-8'>
       <Tab.Group>
-        <Tab.List className='flex justify-center space-x-8 rounded-lg bg-gray-100 p-2 text-sm font-semibold transition-transform duration-700 max-w-md mx-auto'>
+        <Tab.List className='flex justify-center space-x-8 rounded-lg bg-gray-100 dark:bg-gray-700 p-2 text-sm font-semibold transition-transform duration-700 max-w-md mx-auto'>
           <Tab as={Fragment}>
             {({ selected }) => (
               /* Use the `selected` state to conditionally style the selected tab. */
               <button
                 className={
                   selected
-                    ? "bg-blue-950 text-white px-4 py-2 rounded-full"
+                    ? "bg-blue-950 dark:bg-blue-500 text-white px-4 py-2 rounded-full"
                     : "bg-white text-blue-950  px-4 py-2 rounded-full shadow-md"
                 }>
                 Verify
@@ -30,7 +30,7 @@ const AdminTabs = ({ verify, loans, user_email, approvedLoans }) => {
               <button
                 className={
                   selected
-                    ? "bg-blue-950 text-white px-4 py-2 rounded-full"
+                    ? "bg-blue-950 dark:bg-blue-500 text-white px-4 py-2 rounded-full"
                     : "bg-white text-blue-950  px-4 py-2 rounded-full shadow-md"
                 }>
                 Loans
@@ -43,7 +43,7 @@ const AdminTabs = ({ verify, loans, user_email, approvedLoans }) => {
               <button
                 className={
                   selected
-                    ? "bg-blue-950 text-white px-4 py-2 rounded-full"
+                    ? "bg-blue-950 dark:bg-blue-500 text-white px-4 py-2 rounded-full"
                     : "bg-white text-blue-950 px-4 py-2 rounded-full shadow-md"
                 }>
                 Approved

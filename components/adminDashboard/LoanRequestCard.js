@@ -132,12 +132,14 @@ const LoanRequestCard = ({
   };
 
   return (
-    <div className='border rounded-lg p-4 mb-4 shadow-md'>
+    <div className='border dark:border-gray-700 rounded-lg p-4 mb-4 shadow-md'>
       <Toaster />
-      <h1 className='font-semibold text-lg text-blue-950 truncate'>
+      <h1 className='font-semibold text-lg text-blue-950 dark:text-blue-500 truncate'>
         {full_name}
       </h1>
-      <h1 className='font-semibold text-blue-950'>Amount:{amount}</h1>
+      <h1 className='font-semibold text-blue-950 dark:text-blue-500'>
+        Amount:{amount}
+      </h1>
       <div className='text-sm leading-1'>
         <p>IPPIS No: {ippis_no}</p>
         <p>Zone / Centre: {location}</p>
@@ -160,7 +162,7 @@ const LoanRequestCard = ({
 
         <button
           onClick={approveLoan}
-          className='w-full bg-blue-950 text-white mt-4 p-3 rounded-full'>
+          className='w-full bg-blue-950 dark:bg-blue-500 text-white mt-4 p-3 rounded-full'>
           {approving ? (
             <div className='flex items-center justify-center space-x-2'>
               <Spinner />
