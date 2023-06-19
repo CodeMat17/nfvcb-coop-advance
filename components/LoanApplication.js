@@ -83,7 +83,7 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
             <input
               readOnly
               value={full_name}
-              className='disabled cursor-not-allowed bg-gray-100 text-gray-500 px-3 py-2 rounded-lg'
+              className='disabled cursor-not-allowed bg-gray-100 dark:bg-gray-300 text-gray-500 px-3 py-2 rounded-lg'
             />
           </div>
           <div className='flex flex-col mt-2'>
@@ -91,7 +91,7 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
             <input
               readOnly
               value={phone_no}
-              className='disabled cursor-not-allowed bg-gray-100 text-gray-500 px-3 py-2 rounded-lg'
+              className='disabled cursor-not-allowed bg-gray-100 dark:bg-gray-300 text-gray-500 px-3 py-2 rounded-lg'
             />
           </div>
           <div className='flex flex-col mt-2'>
@@ -99,7 +99,7 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
             <input
               readOnly
               value={ippis_no}
-              className='disabled cursor-not-allowed bg-gray-100 text-gray-500 px-3 py-2 rounded-lg'
+              className='disabled cursor-not-allowed bg-gray-100 dark:bg-gray-300 text-gray-500 px-3 py-2 rounded-lg'
             />
           </div>
           <div className='mt-2'>
@@ -145,7 +145,7 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
                 checked={isChecked}
                 onChange={handleCheckbox}
               />
-              <label className='text-black'>
+              <label className='text-black dark:text-white'>
                 {" "}
                 I accept the terms and conditions.
               </label>
@@ -177,7 +177,7 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
       )}
       {status === "processing" && (
         <div className='max-w-md mx-auto'>
-          <div className='border p-6 rounded-lg drop-shadow-lg'>
+          <div className='border dark:border-gray-700 p-6 rounded-lg drop-shadow-lg'>
             <p className='py-2 text-center font-semibold text-xl'>Good news!</p>
             <p className='text-center'>
               {full_name}, your loan request has been received and is being
@@ -190,7 +190,7 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
       )}
       {status === "approved" && (
         <div className='max-w-md mx-auto'>
-          <div className='overflow-hidden border rounded-lg drop-shadow-lg'>
+          <div className='overflow-hidden border dark:border-gray-700 rounded-lg drop-shadow-lg'>
             <div className='p-6'>
               <p className='py-2 text-center font-semibold text-2xl'>
                 🤩 Hurray!

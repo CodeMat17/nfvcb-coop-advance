@@ -41,6 +41,7 @@ import { cookies } from "next/headers";
 import Image from "next/image";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
+import ThemeButton from "./ThemeButton";
 
 const NavHeader = async () => {
   const supabase = createServerComponentClient({ cookies });
@@ -61,7 +62,8 @@ const {data: profile} = await supabase.from('profiles').select('id, isAdmin').eq
           </div>
         </div>
 
-        <div>
+        <div className="flex items-center space-x-4">
+          <ThemeButton />
           <MobileMenu profile={profile} session={session} />
           <DesktopMenu profile={profile} />
         </div>

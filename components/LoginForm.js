@@ -83,7 +83,7 @@ export const LoginForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
           placeholder='Enter Email'
-          className='border-2 rounded-full p-3 mt-1 w-full bg-gray-100 drop-shadow-sm'
+          className='border-2 text-gray-700  rounded-full p-3 mt-1 w-full bg-gray-100 drop-shadow-sm'
         />
 
         <input
@@ -92,7 +92,7 @@ export const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           placeholder='Enter Password'
-          className='border-2 rounded-full p-3 mt-4 w-full bg-gray-100 drop-shadow-sm'
+          className='border-2 text-gray-700 rounded-full p-3 mt-4 w-full bg-gray-100 drop-shadow-sm'
         />
 
         <div>
@@ -111,8 +111,9 @@ export const LoginForm = () => {
             </button>
           ) : (
             <button
-                onClick={handleSignUp} disabled={!email.trim() || !password.trim()}
-                className={`w-full border-2 p-4 rounded-full mt-8 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white disabled:cursor-not-allowed disabled:opacity-50`}>
+              onClick={handleSignUp}
+              disabled={!email.trim() || !password.trim()}
+              className={`w-full border-2 p-4 rounded-full mt-8 bg-gradient-to-r from-green-500 to-yellow-500 hover:via-green-500/90 hover:to-yellow-500/70 text-white disabled:cursor-not-allowed disabled:opacity-50`}>
               {loading ? (
                 <div className='flex items-center justify-center gap-x-3'>
                   <CgSpinnerAlt className=' text-2xl w-6 h-6 animate-spin' />{" "}
@@ -128,7 +129,7 @@ export const LoginForm = () => {
           <p className='text-center text-sm mt-4'>
             If you are new,{" "}
             <span
-              className='cursor-pointer text-blue-500 border rounded-full py-0.5 px-1 shadow-md'
+              className='cursor-pointer text-blue-500 border dark:border-gray-700 rounded-full py-0.5 px-1 shadow-md'
               onClick={switchLoginTab}>
               Sign up here
             </span>
@@ -137,7 +138,7 @@ export const LoginForm = () => {
           <p className='text-center text-sm mt-4'>
             If you have signed up already,{" "}
             <span
-              className='cursor-pointer  text-blue-500 border rounded-full py-0.5 px-1 shadow-md'
+              className='cursor-pointer  text-blue-500 border dark:border-gray-700 rounded-full py-0.5 px-1 shadow-md'
               onClick={switchLoginTab}>
               Sign in here
             </span>

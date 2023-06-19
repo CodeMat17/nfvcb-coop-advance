@@ -13,6 +13,7 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
   const [full_name, setFullname] = useState("");
   const [phone_no, setPhone_no] = useState("");
   const [ippis_no, setIPPIS_no] = useState("");
+  const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -31,7 +32,7 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
         setLoading(true);
         const { error } = await supabase
           .from("profiles")
-          .update({ email: userEmail, full_name, ippis_no, phone_no })
+          .update({ email: userEmail, full_name, ippis_no, phone_no, location })
           .eq("id", userId);
 
         if (error) {
@@ -58,7 +59,7 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
         <div className='fixed right-0 left-0 top-0 bottom-0 flex items-center justify-center py-10 px-4 bg-black bg-opacity-25 z-40'>
           <div className='relative bg-white rounded-lg z-50 w-full max-w-md mx-auto my-12 overflow-hidden'>
             <div className='group'>
-              <div className='relative flex justify-between align-baseline bg-blue-950/50 px-4 pt-12 pb-2'>
+              <div className='relative flex justify-between align-baseline bg-blue-900 px-4 pt-12 pb-2'>
                 <p className='text-white font-semibold'>
                   Complete Your Registration
                 </p>
@@ -87,7 +88,7 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                   </div>
                 )}
                 <div className='flex flex-col mb-2'>
-                  <label>Email</label>
+                  <label className='text-gray-700'>Email</label>
                   <input
                     readOnly
                     value={userEmail}
@@ -95,13 +96,13 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                   />
                 </div>
                 <div className='flex flex-col mb-2'>
-                  <label>Name</label>
+                  <label className='text-gray-700'>Name</label>
                   <input
                     minLength={6}
                     value={full_name}
                     onChange={(e) => setFullname(e.target.value)}
                     placeholder='Enter your name here'
-                    className=' text-gray-700 border-2 rounded-lg px-3 py-2 '
+                    className=' text-gray-700 dark:bg-gray-200 border-2 rounded-lg px-3 py-2 '
                   />
                   <label className='text-red-500 text-xs'>
                     {full_name.length >= 6
@@ -110,13 +111,13 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                   </label>
                 </div>
                 <div className='flex flex-col mb-2'>
-                  <label>Phone No.</label>
+                  <label className='text-gray-700'>Phone No.</label>
                   <input
                     maxLength={11}
                     value={phone_no}
                     onChange={(e) => setPhone_no(e.target.value)}
                     placeholder='Enter your phone no. here'
-                    className=' text-gray-700 border-2 rounded-lg px-3 py-2 '
+                    className=' text-gray-700 dark:bg-gray-200 border-2 rounded-lg px-3 py-2 '
                   />
                   <label className='text-red-500 text-xs'>
                     {phone_no.length === 11
@@ -125,17 +126,27 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                   </label>
                 </div>
                 <div className='flex flex-col mb-2'>
-                  <label>IPPIS No.</label>
+                  <label className='text-gray-700'>IPPIS No.</label>
                   <input
                     maxLength={6}
                     value={ippis_no}
                     onChange={(e) => setIPPIS_no(e.target.value)}
                     placeholder='Enter your IPPIS no. here'
-                    className=' text-gray-700 border-2 rounded-lg px-3 py-2 '
+                    className=' text-gray-700 dark:bg-gray-200 border-2 rounded-lg px-3 py-2 '
                   />
                   <label className='text-xs text-red-400 mt-0.5'>
-                    {ippis_no.length < 6 ? 'Maximum of 6 digits' : ''}
+                    {ippis_no.length < 6 ? "Maximum of 6 digits" : ""}
                   </label>
+                </div>
+                <div className='flex flex-col mb-2'>
+                  <label className='text-gray-700'>Zone / Centre</label>
+                  <input
+                    maxLength={6}
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    placeholder='Enter your location here'
+                    className=' text-gray-700 dark:bg-gray-200 border-2 rounded-lg px-3 py-2 '
+                  />                 
                 </div>
               </div>
               <div className='bg-gray-100 p-4 flex justify-between'>
