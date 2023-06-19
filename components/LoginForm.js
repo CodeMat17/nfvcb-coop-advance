@@ -20,9 +20,9 @@ export const LoginForm = () => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
-      options: {
-        emailRedirectTo: `${location.origin}/auth/callback`,
-      },
+      // options: {
+      //   emailRedirectTo: `${location.origin}/auth/callback`,
+      // },
     });
     if (error) {
       setError(error.message);
