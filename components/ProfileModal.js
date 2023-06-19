@@ -141,7 +141,7 @@ export default function ProfileModal({ show, setShow, userEmail, userId }) {
                 <div className='flex flex-col mb-2'>
                   <label className='text-gray-700'>Zone / Centre</label>
                   <input
-                    maxLength={6}
+                  
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     placeholder='Enter your location here'

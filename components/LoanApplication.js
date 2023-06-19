@@ -7,10 +7,11 @@ import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Spinner from "./Spinner";
 
-const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
+const LoanApplication = ({ id, full_name, phone_no, ippis_no, status, location }) => {
   const supabase = createClientComponentClient();
   const router = useRouter();
   const [amount, setAmount] = useState("");
+    // const [location, setLoaction] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [loading, setLoading] = useState(false);
   const [noAmount, setNoAmount] = useState(false);
@@ -46,6 +47,9 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status }) => {
           user_id: id,
           amount,
           full_name,
+          location,
+          ippis_no,
+          phone_no,
         });
         if (!error) {
           await supabase
