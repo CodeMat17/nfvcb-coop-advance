@@ -141,7 +141,7 @@ const LoanRequestCard = ({
         Amount:{amount}
       </h1>
       <div className='text-sm leading-1'>
-        {ippis_no}
+     
         <p>IPPIS No: {ippis_no}</p>
         <p>Zone / Centre: {location}</p>
         <p>Phone No: {phone_no}</p>

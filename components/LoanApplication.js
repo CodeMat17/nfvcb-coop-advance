@@ -90,14 +90,14 @@ const LoanApplication = ({ id, full_name, phone_no, ippis_no, status, location }
               className='disabled cursor-not-allowed bg-gray-100 dark:bg-gray-300 text-gray-500 px-3 py-2 rounded-lg'
             />
           </div>
-          <div className='flex flex-col mt-2'>
+          {/* <div className='flex flex-col mt-2'>
             <label>Phone No:</label>
             <input
               readOnly
               value={phone_no}
               className='disabled cursor-not-allowed bg-gray-100 dark:bg-gray-300 text-gray-500 px-3 py-2 rounded-lg'
             />
-          </div>
+          </div> */}
           <div className='flex flex-col mt-2'>
             <label>IPPIS No:</label>
             <input
