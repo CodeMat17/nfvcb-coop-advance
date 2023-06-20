@@ -21,7 +21,6 @@ const LoanRequestCard = ({
   const [approving, setApproving] = useState(false);
 
   const declineLoan = async () => {
-  
     setDeclining(true);
     try {
       const { data, error } = await supabase
@@ -55,15 +54,15 @@ const LoanRequestCard = ({
         router.refresh();
       }
     } catch (error) {
-        toast(error.message, {
-          duration: 4000,
-          position: "top-center",
-          icon: "😲",
-          style: {
-            color: "white",
-            background: "red",
-          },
-        });
+      toast(error.message, {
+        duration: 4000,
+        position: "top-center",
+        icon: "😲",
+        style: {
+          color: "white",
+          background: "red",
+        },
+      });
       console.log("error: ", error);
     } finally {
       setDeclining(false);
@@ -71,7 +70,6 @@ const LoanRequestCard = ({
   };
 
   const approveLoan = async () => {
-   
     setApproving(true);
     try {
       const { data, error } = await supabase
@@ -116,15 +114,15 @@ const LoanRequestCard = ({
         router.refresh();
       }
     } catch (error) {
-       toast(error.message, {
-         duration: 4000,
-         position: "top-center",
-         icon: "😲",
-         style: {
-           color: "white",
-           background: "red",
-         },
-       });
+      toast(error.message, {
+        duration: 4000,
+        position: "top-center",
+        icon: "😲",
+        style: {
+          color: "white",
+          background: "red",
+        },
+      });
       console.log("error: ", error);
     } finally {
       setApproving(false);
@@ -141,7 +139,6 @@ const LoanRequestCard = ({
         Amount:{amount}
       </h1>
       <div className='text-sm leading-1'>
-     
         <p>IPPIS No: {ippis_no}</p>
         <p>Zone / Centre: {location}</p>
         <p>Phone No: {phone_no}</p>

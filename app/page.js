@@ -28,11 +28,6 @@ export default async function Home() {
 
   return (
     <main className='flex min-h-screen flex-col py-12 px-4'>
-      <p className='text-center font-semibold text-4xl sm:text-5xl'>
-        <span className='bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-yellow-500 to-pink-500'>
-          COOP Advance
-        </span>
-      </p>
       <div>
         {!profile && (
           <div className='flex justify-center py-12 gap-4 items-center'>
@@ -44,10 +39,16 @@ export default async function Home() {
           profile.map((user) => (
             <div key={user.id}>
               {user.full_name === null ? (
-                <ProfileUpdate {...user} email={userEmail} />
+                <>
+                  <p className='text-center font-semibold text-4xl sm:text-5xl'>
+                    <span className='bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-yellow-500 to-pink-500'>
+                      COOP Advance
+                    </span>
+                  </p>
+                  <ProfileUpdate {...user} email={userEmail} />
+                </>
               ) : (
-                  <>
-                    
+                <>
                   {user.verify === null && (
                     <div className='text-lg text-center max-w-sm mx-auto py-8'>
                       <div className='relative flex justify-center'>
@@ -62,11 +63,11 @@ export default async function Home() {
                         </p>
                       </div>
                       Your registration is completed. Kindly contact the admin
-                      to confirm your membership.
+                      to verify your membership.
                     </div>
                   )}
 
-                  {user.verify === 'verified' && <LoanApplication {...user} />}
+                  {user.verify === "verified" && <LoanApplication {...user} />}
                 </>
               )}
             </div>

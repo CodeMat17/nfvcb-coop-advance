@@ -22,7 +22,7 @@ const MobileMenu = ({ profile, session }) => {
 
   return (
     <>
-      {session &&
+      {session && (
         <Menu as='div' className='relative inline-block text-left sm:hidden'>
           <div>
             <Menu.Button className='p-1 rounded-lg bg-[#086daf] hover:bg-blue-900 text-[#ec6d25]'>
@@ -44,12 +44,14 @@ const MobileMenu = ({ profile, session }) => {
               <Menu.Item>
                 {({ active }) => (
                   <a
-                    className={`${active ? "bg-blue-200 text-white" : "text-[#ec6d25] "
-                      } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
+                    className={`${
+                      active ? "bg-blue-200 text-white" : "text-[#ec6d25] "
+                    } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
                     href='/'>
                     <BiHomeSmile
-                      className={` ${active ? "text-blue-950" : "text-blue-300"
-                        } text-2xl font-semibold `}
+                      className={` ${
+                        active ? "text-blue-950" : "text-blue-300"
+                      } text-2xl font-semibold `}
                     />
                     HOME
                   </a>
@@ -63,14 +65,16 @@ const MobileMenu = ({ profile, session }) => {
                       <Menu.Item className='w-full'>
                         {({ active }) => (
                           <a
-                            className={`${active
+                            className={`${
+                              active
                                 ? "bg-blue-200 text-white"
                                 : "text-[#ec6d25] "
-                              } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
+                            } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
                             href='/admin'>
                             <RiAdminLine
-                              className={` ${active ? "text-blue-950" : "text-blue-300"
-                                } text-2xl font-semibold `}
+                              className={` ${
+                                active ? "text-blue-950" : "text-blue-300"
+                              } text-2xl font-semibold `}
                             />
                             ADMIN
                           </a>
@@ -83,12 +87,14 @@ const MobileMenu = ({ profile, session }) => {
               <Menu.Item>
                 {({ active }) => (
                   <a
-                    className={`${active ? "bg-blue-200 text-white" : "text-[#ec6d25] "
-                      } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
+                    className={`${
+                      active ? "bg-blue-200 text-white" : "text-[#ec6d25] "
+                    } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
                     href='/repay'>
                     <GiPayMoney
-                      className={` ${active ? "text-blue-950" : "text-blue-300"
-                        } text-2xl font-semibold `}
+                      className={` ${
+                        active ? "text-blue-950" : "text-blue-300"
+                      } text-2xl font-semibold `}
                     />
                     REPAY
                   </a>
@@ -99,11 +105,13 @@ const MobileMenu = ({ profile, session }) => {
                 {({ active }) => (
                   <button
                     onClick={signOut}
-                    className={`${active ? "bg-blue-200 text-red-500" : "text-[#ec6d25] "
-                      } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}>
+                    className={`${
+                      active ? "bg-blue-200 text-red-500" : "text-[#ec6d25] "
+                    } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}>
                     <AiOutlineLogout
-                      className={` ${active ? "text-red-500" : "text-blue-300"
-                        } text-2xl font-semibold `}
+                      className={` ${
+                        active ? "text-red-500" : "text-blue-300"
+                      } text-2xl font-semibold `}
                     />
                     SIGN OUT
                   </button>
@@ -114,8 +122,9 @@ const MobileMenu = ({ profile, session }) => {
                 <Menu.Item className='flex justify-center'>
                   {({ active }) => (
                     <a
-                      className={`${active ? "bg-blue-200" : "text-white"
-                        } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
+                      className={`${
+                        active ? "bg-blue-200" : "text-white"
+                      } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
                       href='#'>
                       <MdCall
                         className={`  text-blue-950 text-2xl font-semibold `}
@@ -127,9 +136,10 @@ const MobileMenu = ({ profile, session }) => {
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      className={`${active ? "bg-blue-200" : "text-white"
-                        } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
-                      href='#'>
+                      className={`${
+                        active ? "bg-blue-200" : "text-white"
+                      } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
+                      href='mailto:nfvcbcoop@gmail.com'>
                       <BiMailSend
                         className={`  text-blue-950 text-2xl font-semibold `}
                       />
@@ -139,7 +149,8 @@ const MobileMenu = ({ profile, session }) => {
               </div>
             </Menu.Items>
           </Transition>
-        </Menu>}
+        </Menu>
+      )}
     </>
   );
 };
