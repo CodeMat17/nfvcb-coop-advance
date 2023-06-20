@@ -39,8 +39,8 @@ import { cookies } from "next/headers";
 // }
 
 import Image from "next/image";
-import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
+import MobileMenu from "./MobileMenu";
 import ThemeButton from "./ThemeButton";
 
 const NavHeader = async () => {
@@ -50,7 +50,10 @@ const NavHeader = async () => {
     data: { session },
   } = await supabase.auth.getSession();
 
-const {data: profile} = await supabase.from('profiles').select('id, isAdmin').eq('id', session?.user?.id)
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("id, isAdmin")
+    .eq("id", session?.user?.id);
 
   return (
     <div className='relative top-0 z-50 bg-blue-950 px-4 py-3'>
@@ -62,7 +65,7 @@ const {data: profile} = await supabase.from('profiles').select('id, isAdmin').eq
           </div>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className='flex items-center space-x-4'>
           <ThemeButton />
           <MobileMenu profile={profile} session={session} />
           <DesktopMenu profile={profile} />
