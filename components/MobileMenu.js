@@ -10,6 +10,7 @@ import { GiPayMoney } from "react-icons/gi";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdCall } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
+import { BsWhatsapp } from "react-icons/bs";
 
 const MobileMenu = ({ profile, session }) => {
   const supabase = createClientComponentClient();
@@ -46,12 +47,12 @@ const MobileMenu = ({ profile, session }) => {
                   <a
                     className={`${
                       active ? "bg-blue-200 text-white" : "text-[#ec6d25] "
-                    } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
+                    }  inline-flex items-center px-4 gap-x-3 text-xl py-4 `}
                     href='/'>
                     <BiHomeSmile
                       className={` ${
                         active ? "text-blue-950" : "text-blue-300"
-                      } text-2xl font-semibold `}
+                      } text-xl font-semibold `}
                     />
                     HOME
                   </a>
@@ -69,12 +70,12 @@ const MobileMenu = ({ profile, session }) => {
                               active
                                 ? "bg-blue-200 text-white"
                                 : "text-[#ec6d25] "
-                            } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
+                            } inline-flex items-center px-4 gap-x-3 text-xl py-4 `}
                             href='/admin'>
                             <RiAdminLine
                               className={` ${
                                 active ? "text-blue-950" : "text-blue-300"
-                              } text-2xl font-semibold `}
+                              } text-xl font-semibold `}
                             />
                             ADMIN
                           </a>
@@ -89,12 +90,12 @@ const MobileMenu = ({ profile, session }) => {
                   <a
                     className={`${
                       active ? "bg-blue-200 text-white" : "text-[#ec6d25] "
-                    } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}
+                    }  inline-flex items-center px-4 gap-x-3 text-xl py-4 `}
                     href='/repay'>
                     <GiPayMoney
                       className={` ${
                         active ? "text-blue-950" : "text-blue-300"
-                      } text-2xl font-semibold `}
+                      } text-xl font-semibold `}
                     />
                     REPAY
                   </a>
@@ -107,11 +108,11 @@ const MobileMenu = ({ profile, session }) => {
                     onClick={signOut}
                     className={`${
                       active ? "bg-blue-200 text-red-500" : "text-[#ec6d25] "
-                    } font-semibold inline-flex items-center px-4 gap-x-3 text-2xl py-4 `}>
+                    } inline-flex items-center px-4 gap-x-3 text-xl py-4 `}>
                     <AiOutlineLogout
                       className={` ${
                         active ? "text-red-500" : "text-blue-300"
-                      } text-2xl font-semibold `}
+                      } text-xl font-semibold `}
                     />
                     SIGN OUT
                   </button>
@@ -125,7 +126,7 @@ const MobileMenu = ({ profile, session }) => {
                       className={`${
                         active ? "bg-blue-200" : "text-white"
                       } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
-                      href='#'>
+                      href='tel:+2348052791553'>
                       <MdCall
                         className={`  text-blue-950 text-2xl font-semibold `}
                       />
@@ -141,6 +142,20 @@ const MobileMenu = ({ profile, session }) => {
                       } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
                       href='mailto:nfvcbcoop@gmail.com'>
                       <BiMailSend
+                        className={`  text-blue-950 text-2xl font-semibold `}
+                      />
+                    </a>
+                  )}
+                </Menu.Item>
+
+                <Menu.Item>
+                  {({ active }) => (
+                    <a
+                      className={`${
+                        active ? "bg-blue-200" : "text-white"
+                      } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
+                      href='https://wa.me/2348035672400'>
+                      <BsWhatsapp
                         className={`  text-blue-950 text-2xl font-semibold `}
                       />
                     </a>

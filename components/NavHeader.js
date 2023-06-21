@@ -59,7 +59,7 @@ const NavHeader = async () => {
     <div className='relative top-0 z-50 bg-blue-950 px-4 py-3'>
       <div className='max-w-6xl mx-auto flex items-center justify-between'>
         <div className='flex items-center gap-x-1'>
-          <Image alt='logo' width={90} height={60} src='/logo.webp' />
+          <Image alt='logo' width={70} height={50} src='/logo.webp' />
           <div className='text-white leading-3 font-semibold text-lg'>
             <h3>COOP</h3> <h3>Advance</h3>
           </div>
