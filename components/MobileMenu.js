@@ -126,7 +126,7 @@ const MobileMenu = ({ profile, session }) => {
                       className={`${
                         active ? "bg-blue-200" : "text-white"
                       } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
-                      href='tel:+2348052791553'>
+                      href='tel:+2348079551587'>
                       <MdCall
                         className={`  text-blue-950 text-2xl font-semibold `}
                       />
@@ -154,7 +154,7 @@ const MobileMenu = ({ profile, session }) => {
                       className={`${
                         active ? "bg-blue-200" : "text-white"
                       } w-full font-semibold inline-flex items-center justify-center gap-x-3 text-amber-900 text-center py-4 `}
-                      href='https://wa.me/2348035672400'>
+                      href='https://wa.me/2348079551587'>
                       <BsWhatsapp
                         className={`  text-blue-950 text-2xl font-semibold `}
                       />
