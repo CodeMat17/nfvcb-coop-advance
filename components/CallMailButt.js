@@ -33,7 +33,7 @@ const CallMailButt = () => {
                   className={`${
                     active ? "bg-blue-300" : " "
                   } font-semibold inline-flex items-center px-4 gap-x-3 text-lg py-4 `}
-                  href='tel:+2348052791553'>
+                  href='tel:+2348079551587'>
                   <MdCall className='text-[#ec6d25] text-xl' />
                   Call
                 </a>
@@ -57,7 +57,7 @@ const CallMailButt = () => {
                   className={`${
                     active ? "bg-blue-300 " : " "
                   } font-semibold inline-flex items-center px-4 gap-x-3 text-lg py-4 `}
-                  href='https://wa.me/2348035672400'>
+                  href='https://wa.me/2348079551587'>
                   <BsWhatsapp className='text-[#ec6d25] text-xl' />
                   WhatsApp
                 </a>

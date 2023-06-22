@@ -3,6 +3,7 @@
 import NavHeader from "@/components/NavHeader";
 import { Figtree, Shantell_Sans } from "next/font/google";
 import "./globals.css";
+import Footer from '@/components/Footer'
 import Providers from "./providers";
 
 const shantell = Shantell_Sans({ subsets: ["latin"], weights: 400 });
@@ -25,7 +26,8 @@ export default async function RootLayout({ children }) {
           <div className={figtree.className}>
             <NavHeader />
           </div>
-          {children}
+         <main className='min-h-[90vh]'>{children}</main> 
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>
